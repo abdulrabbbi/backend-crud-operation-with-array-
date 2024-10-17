@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>All posts</title>
+  </head>
+  <body>
+    <h1>Qura posts</h1>
+    <% for(let post of posts){ %>
+    <div class="post">
+      <h3>Username : @<%= post.username %></h3>
+      <p>
+        <b style="text-decoration: underline">content</b> : <%= post.post %>
+      </p>
+      <a href="http://localhost:7262/post/<%= post.id  %>">show details</a>
+      <a href="http://localhost:7262/post/<%= post.id  %>/edit">edits post</a>
+      <form action="/post/<%=post.id %>?_method=DELETE" method="post" >
+        <button>DELETE</button>
+      </form>
+
+    </div>
+
+    <% } %>
+    <form action="/post/new" method="get">
+      <button>create new post</button>
+    </form>
+  </body>
+</html>

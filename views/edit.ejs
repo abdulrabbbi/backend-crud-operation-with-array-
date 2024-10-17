@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/newStyle.css" />
+    <title>Edit post</title>
+  </head>
+  <body>
+    <h1>edits the post:</h1>
+    
+    <form action="/post/<%=post.id %>?_method=PATCH" method="post">
+      <input type="text" placeholder="username" value="<%= post.username  %>"readonly />
+      <textarea name="post" id="post" placeholder="<%=post.post  %>"><%=post.post  %></textarea>
+      <button type="submit">submit</button>
+    </form>
+    <a href="http://localhost:7262/post">back to home</a>
+  </body>
+</html>
